@@ -1,3 +1,12 @@
+
+#------------------------------------------------------------------------------------------------
+# PROGRAM DESCRIPTION
+# KAGGLE TITANIC SUBMISSION SCRIPT
+# CURRENTLY USING RANDOM FORREST AND TWEAKING PARAMETERS
+#------------------------------------------------------------------------------------------------
+
+
+
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
@@ -7,17 +16,20 @@ for dirname, _, filenames in os.walk('data/'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
-# Any results you write to the current directory are saved as output.
+
+# random forest model
+from sklearn.ensemble import RandomForestClassifier
+
 
 train_data = pd.read_csv("data/train.csv")
 train_data.head()
-
 test_data = pd.read_csv("data/test.csv")
 test_data.head()
 
 
+"""
 # Find % of women that survived 
-
+# the brackets are meant to be like that
 women = train_data.loc[train_data.Sex == 'female']["Survived"]
 rate_women = sum(women)/len(women)
 
@@ -28,10 +40,15 @@ men = train_data.loc[train_data.Sex == 'male']["Survived"]
 rate_men = sum(men)/len(men)
 
 print("% of men who survived:", rate_men)
+"""
 
 
-# random forest model
-from sklearn.ensemble import RandomForestClassifier
+
+
+
+
+
+
 
 y = train_data["Survived"]
 
